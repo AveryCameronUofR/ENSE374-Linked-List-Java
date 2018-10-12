@@ -20,7 +20,7 @@ public class LinkedListImplement {
 		if (index < 0) {
 			return null;
 		}
-		for(int i = 1; i < index; i++) {
+		for(int i = 0; i < index; i++) {
 			temp = temp.getNext();
 		}
 		return temp;
