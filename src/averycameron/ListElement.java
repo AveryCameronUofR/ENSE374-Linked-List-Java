@@ -16,6 +16,11 @@ public class ListElement {
 		this.next = null;
 	}
 	
+	public ListElement(int data) {
+		this.data = data;
+		this.next = null;
+	}
+	
 	public void setData(int data) {
 		this.data = data;
 	}
@@ -25,6 +30,9 @@ public class ListElement {
 	
 	public ListElement getNext() {
 		return this.next;
+	}
+	public void setNext(ListElement le) {
+		this.next = le;
 	}
 
 }
