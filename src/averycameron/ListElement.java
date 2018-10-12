@@ -22,5 +22,9 @@ public class ListElement {
 	public int getData() {
 		return this.data;
 	}
+	
+	public ListElement getNext() {
+		return this.next;
+	}
 
 }
