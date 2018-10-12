@@ -13,17 +13,18 @@ public class LinkedListImplement {
 			tail = le;
 		}
 	}
-	/*
-	 * In progress
+
 	public ListElement getElement(int index) {
 
 		ListElement temp = head;
-		for(int i = 0; i < index; i++) {
+		if (index < 0) {
+			return null;
+		}
+		for(int i = 1; i < index; i++) {
 			temp = temp.getNext();
 		}
 		return temp;
 	}
-	*/
 	
 	/*
 	 * In Progress

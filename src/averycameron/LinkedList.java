@@ -12,6 +12,7 @@ public class LinkedList {
 		list.add(new ListElement(5));
 		list.add(new ListElement(10));
 		list.add(new ListElement(51));
+		System.out.println("element is " + list.getElement(2).getData());
 	}
 
 }
