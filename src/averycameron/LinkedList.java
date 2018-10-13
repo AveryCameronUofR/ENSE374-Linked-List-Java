@@ -58,6 +58,8 @@ public class LinkedList {
 					le = list.deleteElement(value);
 					if (le == null) {
 						System.out.println("Invalid, index entered doesn't exist");
+					}else {
+						System.out.println(le.getData() + " was deleted from the list");
 					}
 				} else {
 					System.out.println("Not a valid index, must be greater than or equal to 0");
