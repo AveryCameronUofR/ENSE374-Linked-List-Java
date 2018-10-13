@@ -13,6 +13,15 @@ public class LinkedList {
 		list.add(new ListElement(10));
 		list.add(new ListElement(51));
 		System.out.println("element is " + list.getElement(2).getData());
+		list.printLinkedListHead();
+		list.deleteElement(1);
+		list.printLinkedListHead();
+		list.deleteElement(1);
+		list.printLinkedListHead();
+		list.deleteElement(0);
+		list.printLinkedListHead();
+		list.add(new ListElement(21));
+		list.printLinkedListHead();
 	}
 
 }
