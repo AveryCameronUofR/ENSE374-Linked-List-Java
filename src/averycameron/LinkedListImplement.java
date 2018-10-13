@@ -5,7 +5,15 @@ public class LinkedListImplement {
 	ListElement tail;
 	int length = -1;
 	
-	//adds a new element and increments the length 
+	/*
+	 * Name: add
+	 * Takes: ListElement le
+	 * Returns: none
+	 * 
+	 * Purpose: Adds a new list element to the linked List
+	 * sets the head and tail for a new list, or increments list along 
+	 * increments the length by 1 
+	 */
 	public void add(ListElement le) {
 		if (tail == null) {
 			head = le;
@@ -17,11 +25,20 @@ public class LinkedListImplement {
 		length++;
 	}
 	
-	//gets element at index given
+	/*
+	 * Name: getElement
+	 * Takes: int index 
+	 * Returns: ListElement
+	 * 
+	 * Purpose: Checks if the index is valid and is in the list
+	 * if the index is valid, loops through the string and returns the item at the index
+	 * Note: index of list starts from 0
+	 */
 	public ListElement getElement(int index) {
 
 		ListElement temp = head;
-		if (index < 0) {
+		
+		if (index < 0 || index > this.length) {
 			return null;
 		}
 		for(int i = 0; i < index; i++) {
@@ -31,18 +48,18 @@ public class LinkedListImplement {
 	}
 	
 	/*
-	 * deleteElement
-	 * Return ListElement
-	 * checks if the index is valid(in the list)
-	 * if the head is equal to the tail, and index is valid 
-	 * 		there is only 1 element to delete
-	 * 		set values to null and return deletedElement
-	 * otherwise
-	 * 		loop though the list until the the temp element it the one for deletion
-	 * 	if the item to delete is the tail, set the prev node's next to null
-	 * 	else it is in the middle, prev next (1 before deletion) points to temp next (1 after deletion)
+	 * Name: deleteElement
+	 * Takes: int index
+	 * Returns: ListElement
 	 * 
-	 * length is decremented to keep track of list, deleted element is returned
+	 * Purpose: deletes an element at the given index and returns the value that was deleted
+	 * if the list is empty or index is out of range, null is returned
+	 * if the list contains 1 element, both are set to null
+	 * otherwise loops through list until temp listElement holds the value to delete
+	 * prev holds the index behind item to delete and points to after the temp's location
+	 * 
+	 * Length is decremented to keep track of list after deletion
+	 * 
 	 */
 	public ListElement deleteElement(int index) {
 		ListElement deletedElement = new ListElement();
@@ -70,6 +87,10 @@ public class LinkedListImplement {
 				prev.setNext(temp.getNext());
 				length--;
 				return deletedElement;
+			} else if (prev == null) {
+				//if the element is in the head, set the head to the next element
+				deletedElement.setData(temp.getData());
+				head = temp.getNext();
 			}
 			//element is in the middle 
 			else {
@@ -89,7 +110,14 @@ public class LinkedListImplement {
 		
 	}
 	
-	//prints the linked list from the head
+	/*
+	 * Name: printLinkedListHead
+	 * Takes: None
+	 * Return: None
+	 * Purpose: prints the starting at the head and going to the tail
+	 * loops through the list and uses -> to indicate connections
+	 * prints "the list is empty" if list head is null
+	 */
 	public void printLinkedListHead() {
 		ListElement temp = head;
 		//temp is set to the head, if it is null the list is empty
@@ -102,6 +130,6 @@ public class LinkedListImplement {
 			System.out.print(temp.getData() + " -> ");
 			temp = temp.getNext();
 		}
-		System.out.print("null\n");
+		System.out.print("null\n"); //prints null to indicate end of list 
 	}
 }
