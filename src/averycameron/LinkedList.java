@@ -3,8 +3,6 @@ import java.util.Scanner;
 public class LinkedList {
 	
 	
-
-	
 	public static void main(String[] args) {
 		
 		Scanner userInput = new Scanner(System.in);
@@ -101,8 +99,10 @@ public class LinkedList {
 					
 			} else if (choice.charAt(0) == 'p' || choice.charAt(0) == 'P') {
 				list.printLinkedListHead();
+			} else if (choice.charAt(0) == 'q' || choice.charAt(0) == 'Q'){
+				System.out.println("Program Exited");
 			} else {
-				System.out.println("Not a valid choice, ensure initial character is correct");
+				System.out.println("Not a valid Input choice, ensure initial character is correct");
 			}
 		}
 		
