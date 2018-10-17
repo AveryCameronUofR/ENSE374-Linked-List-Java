@@ -39,7 +39,7 @@ public class LinkedList {
 		
 		/*
 		 * uses the java.util.Scanner to get user input in the form of a string
-		 * loops continuosly while input does not start with q
+		 * loops continuously while input does not start with q
 		 * choice options:
 		 * a- add
 		 * Adds an element after retrieving the value to enter (value is checked for validity)
