@@ -5,10 +5,11 @@ package averycameron;
 
 /**
  * @author avery
- *
+ *	List Element class, creates nodes for linked list
  */
 public class ListElement {
 	private ListElement next;
+	private ListElement prev;
 	private int data;
 	
 	/* Default constructor of new ListElement
@@ -46,6 +47,16 @@ public class ListElement {
 	//sets the item linked to the element
 	public void setNext(ListElement le) {
 		this.next = le;
+	}
+	
+	//gets the previous element
+	public ListElement getPrev() {
+		return this.prev;
+	}
+	
+	//sets the previous item linked to the element
+	public void setPrev(ListElement le) {
+		this.prev = le;
 	}
 
 }
