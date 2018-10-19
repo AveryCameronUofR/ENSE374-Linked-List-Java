@@ -20,6 +20,7 @@ public class LinkedListImplement {
 			tail = le;
 		} else {
 			tail.setNext(le);
+			le.setPrev(tail);
 			tail = le;
 		}
 		length++;
