@@ -64,7 +64,7 @@ public class LinkedListImplement {
 	 */
 	public ListElement deleteElement(int index) {
 		ListElement deletedElement = new ListElement();
-		
+		ListElement prevSetter = new ListElement();
 		//if the index is in the list
 		if(index < this.length) {
 			ListElement temp = head;
@@ -86,18 +86,23 @@ public class LinkedListImplement {
 				deletedElement.setData(temp.getData());
 				tail = tempPrev;
 				tempPrev.setNext(temp.getNext());
+				temp.setPrev(tempPrev.getPrev());
 				length--;
 				return deletedElement;
 			} else if (tempPrev == null) {
 				//if the element is in the head, set the head to the next element
 				deletedElement.setData(temp.getData());
 				head = temp.getNext();
-				
+				temp.setPrev(null);
+				prevSetter = temp.getNext();
+				prevSetter.setPrev(tempPrev);
 			}
 			//element is in the middle 
 			else {
 				tempPrev.setNext(temp.getNext());
+				prevSetter = temp.getNext();
 				deletedElement.setData(temp.getData());
+				prevSetter.setPrev(tempPrev);
 			}
 			//return the element that was deleted
 			return deletedElement;
