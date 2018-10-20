@@ -53,7 +53,7 @@ public class LinkedList {
 		 * prints error message
 		 */
 		while (choice.charAt(0) != 'q') {
-			System.out.print("Please choose to add(a), delete(d), retrieve(r), or print(p), quit(q)");
+			System.out.print("Please choose to add(a), delete(d), retrieve(r), or printHead(p), or printTail(t), quit(q)");
 			choice = userInput.nextLine();
 			
 			if (choice.charAt(0) == 'a' || choice.charAt(0) == 'A') {
@@ -99,7 +99,9 @@ public class LinkedList {
 					
 			} else if (choice.charAt(0) == 'p' || choice.charAt(0) == 'P') {
 				list.printLinkedListHead();
-			} else if (choice.charAt(0) == 'q' || choice.charAt(0) == 'Q'){
+			} else if (choice.charAt(0) == 't' || choice.charAt(0) == 't') {
+				list.printLinkedListTail();
+			}else if (choice.charAt(0) == 'q' || choice.charAt(0) == 'Q'){
 				System.out.println("Program Exited");
 			} else {
 				System.out.println("Not a valid Input choice, ensure initial character is correct");

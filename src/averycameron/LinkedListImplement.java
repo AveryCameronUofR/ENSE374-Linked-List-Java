@@ -57,7 +57,7 @@ public class LinkedListImplement {
 	 * if the list is empty or index is out of range, null is returned
 	 * if the list contains 1 element, both are set to null
 	 * otherwise loops through list until temp listElement holds the value to delete
-	 * prev holds the index behind item to delete and points to after the temp's location
+	 * tempPrev holds the index behind item to delete and points to after the temp's location
 	 * 
 	 * Length is decremented to keep track of list after deletion
 	 * 
@@ -68,7 +68,7 @@ public class LinkedListImplement {
 		//if the index is in the list
 		if(index < this.length) {
 			ListElement temp = head;
-			ListElement prev = null;
+			ListElement tempPrev = null;
 			if (head == tail) {
 				deletedElement.setData(head.getData());
 				head = null;
@@ -78,24 +78,25 @@ public class LinkedListImplement {
 			}
 			//loop through list
 			for(int i = 0; i < index; i++) {
-				prev = temp;
+				tempPrev = temp;
 				temp = temp.getNext();
 			}
 			//if element is at tail
 			if (temp.getNext() == null) {
 				deletedElement.setData(temp.getData());
-				tail = prev;
-				prev.setNext(temp.getNext());
+				tail = tempPrev;
+				tempPrev.setNext(temp.getNext());
 				length--;
 				return deletedElement;
-			} else if (prev == null) {
+			} else if (tempPrev == null) {
 				//if the element is in the head, set the head to the next element
 				deletedElement.setData(temp.getData());
 				head = temp.getNext();
+				
 			}
 			//element is in the middle 
 			else {
-				prev.setNext(temp.getNext());
+				tempPrev.setNext(temp.getNext());
 				deletedElement.setData(temp.getData());
 			}
 			//return the element that was deleted
@@ -108,7 +109,19 @@ public class LinkedListImplement {
 	
 	//will be implemented in phase 2
 	public void printLinkedListTail() {
-		
+		ListElement temp = tail;
+		//temp is set to the tail, if it is null the list is empty
+		if (temp == null) {
+			System.out.println("The list is empty");
+			return; //returns from the function early
+		}
+		System.out.print("Tail -> ");
+		//loops through the list setting temp to the next item in the list and printing it
+		while(temp!=null) {
+			System.out.print(temp.getData() + " -> ");
+			temp = temp.getPrev();
+		}
+		System.out.print("at head\n"); //prints null to indicate end of list 
 	}
 	
 	/*
@@ -125,7 +138,8 @@ public class LinkedListImplement {
 		if (temp == null) {
 			System.out.println("The list is empty");
 			return; //returns from the function early
-		}
+		} 
+		System.out.print("Head -> ");
 		//loops through the list setting temp to the next item in the list and printing it
 		while(temp!=null) {
 			System.out.print(temp.getData() + " -> ");
